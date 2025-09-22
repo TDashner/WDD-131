@@ -2,13 +2,17 @@ h2 {
     color: #006EB6;
 }
 
+h1 {
+    color: black;
+}
+
+
 h1 main {
     text-align: center;
 }
 
 body {
     font-size: 20px;
-    width: 600px;
 }
 
 header {
@@ -20,12 +24,15 @@ p {
     text-align: left;
 }
 
-footer {
+img {
     margin: 20px;
     padding: 15px;
     line-height: 1.5px;
     size: 150px;
+    width: 230px;
+    height: 142px;
 }
+
 
 .dark {
     background-color: #333;
@@ -34,4 +41,13 @@ footer {
 
 .dark h2 {
     color: #A0D4ED;
+}
+
+.dark h1 {
+    color: white;
+}
+
+footer img{
+    width: 200px;
+    height: auto;
 }
