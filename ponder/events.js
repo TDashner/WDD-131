@@ -1,17 +1,31 @@
 let tasks = [];
 
-function renderTasks(tasks) {
-  // get the list element from the DOM
-  // loop through the tasks array. transform (map) each task object into the appropriate HTML to represent a to-do.
+function taskTemplate(task) {
+  return `<li ${task.completed ? 'class="strike"' : ""}>
+   <p>${task.detail}</p>
+   <div>
+     <span data-action="delete">❎</span>
+     <span data-action="complete">✅</span>
+   </div>
+ </li>`;
 }
 
-function newTask(task) {
+function renderTasks(tasks) {
+  // get the list element from the DOM
+  const listElement = document.querySelector("#todoList");
+  // listElement.innerHTML = "";
+  // loop through the tasks array. transform (map) each task object into the appropriate HTML to represent a to-do.
+  const html = tasks.map(taskTemplate).join("");
+  listElement.innerHTML = html;
+}
+
+function newTask() {
   // get the value entered into the #todo input
-  task = newTask.
+  const task = document.querySelector('#todo').value;
   // add it to our arrays tasks
-    task.append
+  tasks.push({detail: task, completed: false});
   // render out the list
-    console.log(renderTasks)
+  renderTasks(tasks);
 }
 
 function removeTask(taskElement) {
@@ -45,10 +59,19 @@ function manageTasks(event) {
   console.log(event.target);
   console.log(event.currentTarget);
   // event.target will point to the actual icon clicked on. We need to get the parent li to work with however. HINT: Remember element.closest()? Look it up if you don't
-
+  const parent = event.target.closest("li");
+  if (event.target.dataset.action === "delete") {
+    removeTask(parent);
+  }
+  if (event.target.dataset.action === "complete") {
+    completeTask(parent);
+  }
   // because we added 'data-action="delete"' to each icon in a task we can access a dataset property on our target (e.target.dataset.action)
   // use that in a couple of if statements to decide whether to run removeTask or completeTask
 }
 
 // Add your event listeners here
 // We need to attach listeners to the submit button and the list. Listen for a click, call the 'newTask' function on submit and call the 'manageTasks' function if either of the icons are clicked in the list of tasks.
+document.querySelector("#submitTask").addEventListener("click", newTask);
+document.querySelector("#todoList").addEventListener("click", manageTasks);
+renderTasks(tasks);
