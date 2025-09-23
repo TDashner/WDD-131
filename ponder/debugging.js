@@ -7,11 +7,13 @@
 // area = radius * radius * pi;
 // console.log("A2", area)
 
+let radius = 3;
 const PI = 3.14;
 let area = 0;
 function circleArea(radius) {
   const area = radius *radius * PI;
-  return area;
+  return area
 }
-area = circleArea(3);
+
+area = circleArea(radius);
 console.log(area);
