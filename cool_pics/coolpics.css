@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+--primary-color: #52489c;
+--secondary-color: #59c3c3;
+--accent-color: #f45b69;
+--text-dark: #333;
+--text-light: #ebebeb;
+--primary-font: Arial, Helvetica,sans-serif;
+--secondary-font: Mooli, san-serif;
+}
+
+h1{
+    margin: auto;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-family: var(--secondary-font);
+    padding: 20px;
+}
+
+button {
+    color: var(--text-light);
+    background-color: var(--primary-color);
+    border:none;
+    margin: auto;
+    text-align: center;
+    text-decoration: none;
+    padding: 15px;
+    width: 100%;
+    display: block;
+    cursor: pointer;
+    font-size: 40px;
+    font-family: var(--primary-font);
+}
+
+h3 {
+    margin: auto;
+    text-align: center;
+    font-family: var(--secondary-font);
+    color: var(--text-dark);
+    padding: 20px;
+    font-weight: bold;
+}
+
+.gallery {
+    display: grid;
+}   
+
+main {
+    background-color:#dcdada;
+}
+
+img {
+    border-style: outset;
+    border-width: thick;
+    border-color: var(--text-light);
+    height: 250px;
+    width: 250px;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+body {
+  font-family: var(--primary-font);
+  font-size: 1.2em;
+}
+
+a {
+    color: var(--text-light);
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav {
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+a:visited {
+  color: var(--accent-color);
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.hide {
+    display: none;
+}
+
+.viewer {
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.75);
+    grid: center;
+    color: white;  
+    max-height: 100%;
+    z-index: 10;
+}
+
+@media screen and (min-width: 300px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+} 
+
+@media screen and (min-width: 600px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    button {
+        display: none;
+    }
+        nav {
+        display: none;
+    }
+
+}
+
+
+
