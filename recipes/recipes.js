@@ -279,3 +279,118 @@ const recipes = [
 		rating: 4
 	}
 ]
+
+
+function random(num) {
+	return Math.floor(Math.random() * num);
+}
+
+function getRandomListEntry(list) {
+	const listLength = list.length;
+	const randomNum = random(listLength);
+	return list[randomNum];
+}
+
+// to test
+console.log(getRandomListEntry(recipes));
+
+
+function recipeTemplate(recipe) {
+	return `<figure class="recipe">
+	<img src="${recipe.image}" alt="image of ${recipe.name}" />
+	<figcaption>
+		${tagsTemplate(recipe.tags)}
+		<h2><a href="${recipe.url || '#'}">${recipe.name}</a></h2>
+		<p class="recipe__ratings">
+			${ratingTemplate(recipe.rating)}
+		</p>
+		<p class="recipe__description">
+			${recipe.description}
+		</p>
+</figcaption>
+</figure>`;
+}
+
+function tagsTemplate(tags) {
+	// loop through the tags list and transform the strings to HTML
+	return `<ul class="recipe_tags">
+	${tags.map(tag => `<li>${tag}</li>`).join('')}
+	</ul>`;
+	
+}
+
+function ratingTemplate(rating) {
+	// begin building an html string using the ratings HTML written earlier as a model.
+	let html = `<span
+	class="rating"
+	role="img"
+	aria-label="Rating: ${rating} out of 5 stars"
+>`
+// our ratings are always out of 5, so create a for loop from 1 to 5
+
+		// check to see if the current index of the loop is less than our rating
+		// if so then output a filled star
+
+		// else output an empty star
+
+	// after the loop, add the closing tag to our string
+	for (let i = 1; i <= 5; i++) {
+		html += `<span aria-hidden="true" class="${i <= rating ? 'icon-star' : 'icon-star-empty'}">
+      	${i <= rating ? '⭐' : '☆'}
+    	</span>`;
+	}
+	html += `</span>`;
+	// return the html string
+	return html;
+}
+
+const recipe = getRandomListEntry(recipes);
+console.log(recipeTemplate(recipe));
+
+function renderRecipes(recipeList) {
+	const output = document.querySelector('#recipe-list');
+	output.innerHTML = recipeList.map(recipeTemplate).join('');
+	// get the element we will output the recipes into
+
+	// use the recipeTemplate function to transform our recipe objects into recipe HTML strings
+
+	// Set the HTML strings as the innerHTML of our output element.
+
+}
+
+function init() {
+  // get a random recipe
+  const recipe = getRandomListEntry(recipes)
+  // render the recipe with renderRecipes.
+  renderRecipes([recipe]);
+}
+init();
+
+document.querySelector('#search-button').addEventListener('click', searchHandler);
+
+function searchHandler(event) {
+  event.preventDefault(); 
+  const query = document.querySelector('#search').value.toLowerCase().trim();
+  const filteredList = filterRecipes(query);
+  renderRecipes(filteredList);
+}
+
+function filterRecipes(query) {
+  if (!query) return recipes;
+
+  const filtered = recipes.filter(recipe => {
+    const nameMatch = recipe.name.toLowerCase().includes(query);
+    const descriptionMatch = recipe.description.toLowerCase().includes(query);
+
+    const tagMatch = recipe.tags.find(tag => tag.toLowerCase().includes(query));
+    const ingredientMatch = recipe.recipeIngredient.find(ing => ing.toLowerCase().includes(query)
+    );
+
+    return nameMatch || descriptionMatch || tagMatch || ingredientMatch;
+  });
+
+  filtered.sort((a, b) => a.name.localeCompare(b.name));
+  return filtered;
+}
+
+
