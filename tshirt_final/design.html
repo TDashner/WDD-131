@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Shirt Designs</title>
+    <link rel="stylesheet" href="tshirt.css">
+    <script src="tshirt.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <h1>Customize Your T-Shirt!</h1>
+        <a href="index.html" class="bacl-link">← Back to Catalog</a>
+    </header>
+
+    <main class="designer">
+        <div class="shirt-preview">
+            <img id="shirtBase" src="" alt="Selected Shirt">
+            <div id="colorOverlay"></div>
+            <img id="designOverlay" src="" lt="Design Overlay">
+        </div>
+
+        <section class="controls">
+            <h2>Choose a Design</h2>
+            <div class="designs">
+                <img src="#" alt="Design 1" onclick="applyDesign(this.src)">
+                <img src="#" alt="Design 2" onclick="applyDesign(this.src)">
+                <img src="#" alt="Design 3" onclick="applyDesign(this.src)">
+            </div>
+            
+            <h2>Choose a Color</h2>
+            <div class="colors">
+                <button style="background: white;" onclick="changeColor('#ffffff')"></button>
+                <button style="background: lightblue;" onclick="changeColor('#add8e6')"></button>
+                <button style="background: black;" onclick="changeColor('#000000')"></button>
+                <button style="background: pink;" onclick="changeColor('#ffc0cb')"></button>  
+            </div>
+        </section>
+    </main>
+</body>
+</html>
