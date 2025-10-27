@@ -1,3 +1,10 @@
+:root {
+    --primary-color: #E7792A;
+    --secondary-color: #83C5BE;
+    --accent1-color:#1C3041;
+}
+
+
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -13,12 +20,23 @@ header {
     text-align: center;
 }
 
+main {
+    background-color: var(--secondary-color);
+}
+
 .catalog {
     display: flex;
     justify-content: center;
     gap: 2rem;
     margin: 2rem;
     
+}
+
+.catalog img {
+    width: 300px;
+    height: 300px;
+    background-color: transparent;
+
 }
 
 .shirt-card {
@@ -47,6 +65,7 @@ header {
     padding: 2rem;
 }
 
+
 .shirt-preview {
     position: relative;
     width: 250px;
@@ -74,11 +93,18 @@ header {
 
 #designOverlay {
     z-index: 2;
+    border: 1px solid black;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
 }
+
 
 .controls {
     margin-top: 2rem;
     text-align: center;
+    border: 1px solid black;
+    flex-wrap: wrap;
 }
 
 .designs img {
@@ -102,4 +128,22 @@ header {
     position: absolute;
     top: 1rem;
     left: 1rem;
+}
+
+
+
+@media screen and (max-width: 400px) {
+    .catalog {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .catalog {
+        flex-direction: column;
+        align-items: center;
+    }
+    
 }

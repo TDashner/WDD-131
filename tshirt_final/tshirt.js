@@ -17,6 +17,7 @@ function applyDesign(src) {
     overlay.src = src;
 }
 
+
 function changeColor(color) {
     const overlay = document.getElementById('colorOverlay');
     overlay.style.backgroundColor = color;
