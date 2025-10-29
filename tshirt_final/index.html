@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TShirt WDD 131 Final</title>
+    <link rel="icon" type="image/x-icon" href="images/tshirt-logo.png">
     <meta property="og:title" content="TShirt WDD 131 Final">
     <meta property="og:description" content="Website to pick your own shirt and design.">
     <meta property="og:image" content="images/tshirt-logo.png">
@@ -14,21 +15,23 @@
 </head>
 <body>
     <header>
+        <img src="images/tshirt-logo.png" alt="T-Shirt Logo">
         <h1>T-Shirt Catalog</h1>
+
     </header>
 
     <main class="catalog">
-        <div class="crewneck" onclick="goToDesign('crewneck')">
+        <div class="shirt-card" onclick="goToDesign('crewneck')">
             <img src="images/crewneck.png" alt="Crew Neck T-Shirt">
             <h2>Crew Neck</h2>
         </div>
 
-        <div class="longsleeve" onclick="goToDesign('longsleeve')">
-            <img src="images/longsleeve.webp" alt="Long Sleeve">
+        <div class="shirt-card" onclick="goToDesign('longsleeve')">
+            <img src="images/longsleeve.png" alt="Long Sleeve">
             <h2>Long Sleeve</h2>
         </div>
 
-        <div class="sweater" onclick="goToDesign('sweater')">
+        <div class="shirt-card" onclick="goToDesign('sweater')">
             <img src="images/sweater.png" alt="Sweater">
             <h2>Sweater</h2>
         </div>
